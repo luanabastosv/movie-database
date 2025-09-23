@@ -1,0 +1,36 @@
+main {
+  .sections {
+    display: flex;
+    flex-direction: row;
+    padding: 0 3rem;
+    justify-content: space-evenly;
+    color: $light;
+    font-style: italic;
+    font-weight: lighter;
+    margin-left: 25rem;
+    margin-right: 10rem;
+    margin-top: 10rem;
+    cursor: pointer;
+    
+
+    h2 {
+      font-size: large;
+      padding-bottom: 1.4rem;
+      margin: 0;
+
+      &.active {
+        border-bottom: solid $yellow;
+        border-width: 0.3rem;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+      &:hover {
+        border-bottom: solid #563b05;
+        border-width: 0.3rem;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+      }
+    }
+    
+  }
+}

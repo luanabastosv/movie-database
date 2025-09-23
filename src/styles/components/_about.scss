@@ -1,0 +1,30 @@
+.about-card {
+    background-color: $dark-m;
+    padding: 5rem;
+    width: 50vw;
+    border-radius: em(40);
+    margin-left: 30vw;
+    margin-top: 30vh;
+
+    .about-content {
+        margin-left: 20%;
+        padding-left: 5%;
+        border-left: solid $yellow;
+
+        h2 {
+            display: flex;
+            flex-direction: row;
+            align-content: end;
+    
+            img {
+                max-width: 200px;
+                padding: 0;
+                margin: 0;
+                align-self: end;
+            }
+        }
+    }
+
+    
+
+}

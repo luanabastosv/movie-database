@@ -1,0 +1,21 @@
+// Type
+
+body {
+    font-family: $bodyFont;
+    color: $dark;
+}
+
+h1, h2, h3, h4 {
+    font-family: $headingFont;
+    color: $grey;
+}
+
+h1, h2, h3, h4, p {
+    margin-top: 0;
+    color: $grey;
+}
+
+p {
+    line-height: 1.4;
+    color: $grey;
+}

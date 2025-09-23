@@ -1,0 +1,143 @@
+.page-favorites {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  min-height: 95vh;
+  margin-top: 25vh;
+  margin-left: 28vw;
+  margin-right: 3rem;
+  text-align: left;
+
+  h2 {
+    margin-bottom: 3rem;
+    width: 100%;
+  }
+
+  .fav-movies {
+    display: grid;
+    gap: em(60);
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    justify-items: center;
+    width: 100%;
+    max-width: 70rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+
+    // Card do filme
+    .movie {
+      position: relative;
+      width: 100%;
+      max-width: em(250);
+      cursor: pointer;
+
+      .profile-picture img {
+        width: 100%;
+        height: auto;
+        border-radius: em(20);
+        object-fit: cover;
+        display: block;
+      }
+
+      .movie-info {
+        display: none;
+        position: absolute;
+        inset: 0;
+        text-align: center;
+        background-color: $dark;
+        border-radius: em(20);
+        z-index: 5;
+        color: $grey;
+        font-style: italic;
+        font-size: medium;
+        padding-bottom: em(50);
+        padding-top: em(45);
+
+        p {
+          padding: 0 em(35);
+          text-align: left;
+        }
+
+        .link-profile a {
+          padding: em(15);
+          background-color: #fcfcfca6;
+          color: $light;
+          border-radius: em(40);
+          text-decoration: none;
+          font-style: normal;
+          font-family: $headingFont;
+          text-transform: uppercase;
+          font-weight: bolder;
+
+          &:hover {
+            background-color: #868484a6;
+          }
+        }
+      }
+
+      &:hover .movie-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .saved {
+        position: absolute;
+        top: em(-30);
+        right: em(30);
+        width: em(45);
+        cursor: pointer;
+        z-index: 15;
+      }
+      .rating {
+      background-color: $yellow;
+      position: absolute;
+      top: em(-10);
+      right: 70%;
+      text-align: center;
+      width: em(45);
+      height: em(22);
+      z-index: 15;
+      p {
+        color: $dark;
+        font-size: 14px;
+      }
+      
+    }
+    }
+
+    // Botão de adicionar filme (+)
+    .add-movie {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      max-width: em(250);
+      height: auto;
+      aspect-ratio: 2/3; // mantém proporção parecida com pôster
+      border-radius: em(10);
+      border: 4px dashed $grey; 
+      font-size: 3rem;
+      font-weight: bold;
+      color: $grey;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: $light;
+        border-color: $light;
+      }
+    }
+  }
+}

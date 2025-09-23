@@ -1,0 +1,29 @@
+import { useEffect, useContext } from "react";
+import { FavsContext } from "../context/FavsContext";
+import { appTitle } from "../globals/globalVariables";
+import Movie from "../components/Movie";
+import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
+
+function PageAbout() {
+  return (
+    <main>
+      <section className="about-card">
+        <div className="about-content">
+          <h2>About MUVI</h2>
+          <p>
+            Muvi is your ultimate destination for discovering, exploring, and
+            diving deep into the world of cinema. Whether you’re a casual
+            viewer, film student, or hardcore cinephile, Muvi offers a dynamic,
+            user-friendly database that brings movies to life through rich
+            metadata, curated content, and intelligent search tools. Dive into
+            detailed movie pages complete with plot summaries, trailers,
+            reviews, behind-the-scenes insights, and audience discussions.
+          </p>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+export default PageAbout;

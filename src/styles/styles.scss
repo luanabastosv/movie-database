@@ -1,0 +1,32 @@
+// Imports
+
+// Google Fonts - Import
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet"');
+
+// Functions
+@import './utilities/functions.scss';
+
+// Settings
+@import './base/settings';
+
+// Utilities
+@import './utilities/mixins.scss';
+@import './utilities/utility-classes';
+
+// Resets
+@import './base/reset';
+@import './base/type';
+
+// Components
+
+@import './components/wrapper';
+@import './components/nav';
+@import './components/sectionsnav';
+@import './components/movies-grid';
+@import './components/movieprofile';
+@import './components/footer';
+@import './components/hero';
+@import './components/favpage';
+@import './components/about';
+
+
