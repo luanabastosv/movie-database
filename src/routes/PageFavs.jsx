@@ -25,7 +25,11 @@ function PageFavs() {
             {favs.map((movie) => (
               <Movie key={movie.id} movieOb={movie} isFav={true} />
             ))}
-           <Link to="/#movie-grid" className="add-movie">+</Link>
+           <Link to="/#movie-grid" className="add-movie">
+           <span>+</span>
+           <p> Add movie...</p>
+           </Link>
+
           </div>
         )}
       </section>

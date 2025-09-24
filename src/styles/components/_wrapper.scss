@@ -1,7 +1,6 @@
 .wrapper {
   @include mc;
   background-color:$dark;
-  
   min-height: 100vh; // ocupa sempre a altura inteira da tela
   display: flex;
   flex-direction: column;

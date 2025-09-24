@@ -118,6 +118,7 @@
     // Botão de adicionar filme (+)
     .add-movie {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       width: 100%;
@@ -125,13 +126,20 @@
       height: auto;
       aspect-ratio: 2/3; // mantém proporção parecida com pôster
       border-radius: em(10);
-      border: 4px dashed $grey; 
+      border: 4px dotted $grey; 
       font-size: 3rem;
       font-weight: bold;
       color: $grey;
       cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
+
+      p {
+        font-size: 1rem;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-style: italic;
+      }
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.05);
