@@ -1,36 +1,42 @@
 // _________________________________________________
 // MOBILE
 .movies-box {
-  background-color: #97aec3;
+  background-color: #7795b4;
   padding: 3rem 1rem;
-  margin: 0 2rem;
+  margin: 0 10%;
   border-radius: 30px;
 
   .movie-grid {
-    display: grid;
-    gap: em(30);
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    justify-items: center;
+  display: grid;
+  gap: em(30);
+  justify-content: center; // centraliza colunas
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
-    @include mq(480px) {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-    @include mq(768px) {
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      max-width: calc(4 * 180px + 3 * em(60)); // 4 colunas + gaps
-      margin: 0 auto;
-    }
-    @include mq(1424px) {
-      grid-template-columns: repeat(4, 1fr); // desktop fixo 4 colunas
-      gap: em(60);
-      max-width: none;
-    }
+  // Mobile – até 2 colunas
+  @include mq(480px) {
+    max-width: calc(2 * 180px + 1 * em(30)); // 2 cards + gap
+    margin: 0 auto;
   }
+
+  // Tablet – até 3 colunas
+  @include mq(768px) {
+    max-width: calc(3 * 180px + 2 * em(30)); // 3 cards + 2 gaps
+    margin: 0 auto;
+  }
+
+  // Desktop – até 4 colunas
+  @include mq(1350px) {
+    gap: em(40);
+    max-width: calc(4 * 200px + 3 * em(40)); // 4 cards + 3 gaps
+    margin: 0 auto;
+  }
+}
 
   .movie {
     position: relative;
-    max-width: em(250);
+    max-width: em(200);
     cursor: pointer;
+    justify-self: center;
 
     .profile-picture img {
       width: 100%;
@@ -48,11 +54,11 @@
       color: $grey;
       font-style: italic;
       font-size: 1rem;
-      padding: em(100) em(40);
+      padding: em(100) auto;
 
       p {
         padding: 0;
-        text-align: left;
+        text-align: center;
       }
 
       .link-profile a {
@@ -106,16 +112,16 @@
 
   // _________________________________________________
   // TABLET
-  @include mq(768px) {
+  @include mq(810px) {
     padding: 3rem 2rem;
-    margin-left: 12rem;
-    margin-right: 5%;
+    margin-left: 18rem;
+    margin-right: 4rem;
 
     .movie {
       max-width: em(200);
 
       .movie-info {
-        padding-top: em(35);
+        padding-top: em(45);
         padding-bottom: em(35);
 
         p {
@@ -149,20 +155,18 @@
 
   // _________________________________________________
   // DESKTOP
-  @include mq(1024px) {
-    padding: 5rem 4rem;
-    margin-left: 25rem;
-    margin-right: 10%;
+  @include mq(1350px) {
+    padding: 5rem 3rem;
+    margin-left: 28rem;
+    margin-right: 10rem;
 
     .movie {
-      max-width: em(250);
 
       .movie-info {
-        padding-top: em(65);
-        padding-bottom: em(50);
+        padding-top: em(45);
+        padding-bottom: em(35);
 
         p {
-          // padding: 0 em(35);
           font-size: 1rem;
         }
 
