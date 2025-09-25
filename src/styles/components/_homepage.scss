@@ -2,35 +2,35 @@
 // MOBILE
 .movies-box {
   background-color: $dark-m;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
   margin: 0 10%;
   border-radius: 30px;
 
   .movie-grid {
-  display: grid;
-  gap: em(30);
-  justify-content: center; // centraliza colunas
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    display: grid;
+    gap: em(60);
+    justify-content: center; // centraliza colunas
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
-  // Mobile – até 2 colunas
-  @include mq(480px) {
-    max-width: calc(2 * 180px + 1 * em(30)); // 2 cards + gap
-    margin: 0 auto;
-  }
+    // Mobile – até 2 colunas
+    @include mq(480px) {
+      max-width: calc(2 * 180px + 1 * em(30)); // 2 cards + gap
+      margin: 0 auto;
+    }
 
-  // Tablet – até 3 colunas
-  @include mq(768px) {
-    max-width: calc(3 * 180px + 2 * em(30)); // 3 cards + 2 gaps
-    margin: 0 auto;
-  }
+    // Tablet – até 3 colunas
+    @include mq(768px) {
+      max-width: calc(3 * 180px + 2 * em(30)); // 3 cards + 2 gaps
+      margin: 0 auto;
+    }
 
-  // Desktop – até 4 colunas
-  @include mq(1350px) {
-    gap: em(40);
-    max-width: calc(4 * 200px + 3 * em(40)); // 4 cards + 3 gaps
-    margin: 0 auto;
+    // Desktop – até 4 colunas
+    @include mq(1350px) {
+      gap: em(40);
+      max-width: calc(4 * 200px + 3 * em(40)); // 4 cards + 3 gaps
+      margin: 0 auto;
+    }
   }
-}
 
   .movie {
     position: relative;
@@ -53,12 +53,13 @@
       border-radius: em(15);
       color: $grey;
       font-style: italic;
-      font-size: 1rem;
-      padding: em(100) auto;
+      font-size: 0.9rem;
+      padding-top: em(65);
+      padding-bottom: em(55);
 
       p {
-        padding: 0;
-        text-align: center;
+        padding: 0 em(50);
+        text-align: left;
       }
 
       .link-profile a {
@@ -121,16 +122,17 @@
       max-width: em(200);
 
       .movie-info {
-        padding-top: em(45);
-        padding-bottom: em(35);
+        padding-top: em(65);
+        padding-bottom: em(55);
 
         p {
-          padding: 0 em(20);
+          padding: 0 em(50);
           font-size: 0.9rem;
+          text-align: left;
         }
 
         .link-profile a {
-          padding: em(12);
+          padding: em(18);
           font-size: 0.85rem;
         }
       }
@@ -161,7 +163,6 @@
     margin-right: 10rem;
 
     .movie {
-
       .movie-info {
         padding-top: em(45);
         padding-bottom: em(35);
