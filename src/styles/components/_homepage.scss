@@ -1,7 +1,7 @@
 // _________________________________________________
 // MOBILE
 .movies-box {
-  background-color: #7795b4;
+  background-color: $dark-m;
   padding: 3rem 1rem;
   margin: 0 10%;
   border-radius: 30px;
@@ -114,8 +114,8 @@
   // TABLET
   @include mq(810px) {
     padding: 3rem 2rem;
-    margin-left: 18rem;
-    margin-right: 4rem;
+    margin-left: 20rem;
+    margin-right: 6rem;
 
     .movie {
       max-width: em(200);

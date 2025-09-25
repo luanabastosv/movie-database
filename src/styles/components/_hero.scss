@@ -1,14 +1,16 @@
+// _________________________________________________
+// MOBILE
+
 .hero {
   height: 100vh;
   display: flex;
-  align-items: center; // centraliza verticalmente o conteúdo
+  align-items: center;
   position: relative;
   z-index: 1;
-
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  position: relative;
+  
 
   &::before {
     content: "";
@@ -19,11 +21,14 @@
   }
 
   .hero-content {
-    position: absolute; // fixa o bloco no mesmo lugar
-    bottom: 15%; // controla a posição (pode ser top / left também)
-    right: 15%;
-    max-width: 35rem;
+    position: absolute; 
+    bottom: 15%;
+    right: 10%;
+    max-width: 25rem;
     z-index: 2;
+    margin-left: 10rem;
+    text-align: left;
+    font-size: 12px;
 
     h2 {
         text-transform: uppercase;
@@ -43,10 +48,9 @@
     margin: 1rem 0;
     padding: 0;
     display: flex;
-    text-align: left;
-    font-size: 10rem; 
+    font-size: 8rem; 
     cursor: pointer;
-    justify-content: end;
+    justify-content: start;
 
     .dot {
       color: #aaaaaa88;
@@ -60,6 +64,22 @@
 
     .dot:hover {
       color: $yellow;
+    }
+  }
+
+
+  // _________________________________________________
+  // TABLET AND DESKTOP
+  @include mq(810px) {
+    .hero-content {
+      max-width: 35rem;
+      margin-left: 18rem;
+      font-size: 16px;
+      right: 15%;
+
+      .hero-nav {
+        font-size: 10rem;
+      }
     }
   }
 }
