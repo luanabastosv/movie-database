@@ -1,60 +1,182 @@
-
 // _________________________________________________
-// TABLET (from 810px)
+// MOBILE
 
-@include mq(810px) {
-  nav {
-    margin-left: 6rem;
-    display: grid;
-    grid-template-columns: 8rem auto;
-    gap: 3rem;
+.logo-icon {
+  display: none;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 3.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: $dark-m;
+  z-index: 100;
+
+  .logo-icon-mobile {
+    display: block;
+    img {
+      width: 10rem;
+    }
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    cursor: pointer;
+    z-index: 300;
+
+    span {
+      width: 2rem;
+      height: 0.25rem;
+      background: white;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  ul {
+    display: none;
+    list-style: none;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+  }
+
+  // HAMB MENU OPEN
+  &.open ul {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $dark-m;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    height: 100vh;
-    z-index: 100;
+    padding: 0;
 
-    a {
-      grid-column: 2/3;
-      align-self: baseline;
-      padding-top: 6rem;
+    li {
+      margin: 0.5rem 0;
+
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 1.2rem;
+        border-radius: 20px;
+        background: #ffffff16;
+        text-decoration: none;
+
+        img {
+          width: 0.8rem;
+        }
+
+        &:hover {
+          background: #ffb82b7b;
+        }
+      }
+
+      p {
+        text-align: center;
+        color: white;
+        margin-top: 0.5rem;
+      }
     }
+  }
+}
 
-    .logo-icon img {
-      flex-shrink: 0;
-      width: 12rem;
+
+
+// _________________________________________________
+// TABLET (FROM 810px)
+@include mq(810px) {
+  .nav-content {
+    position: relative;
+    .logo-icon {
+      display: block;
+      position: absolute;
+      z-index: 400;
+      width: 15rem;
+      left: 18rem;
+      top: 5rem;
+    }
+  
+  nav {
+    position: fixed;
+    left: 0;
+    width: 8rem; 
+    height: calc(100vh - 10rem); 
+    top: 5rem; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    margin-left: 6rem;
+    border-radius: 50px;
+    background: $dark-m-transp;
+
+    
+    .hamburger,
+    .logo-icon-mobile {
+      display: none;
     }
 
     ul {
-      position: fixed;
-      background-color: #63819f6c;
-      // background-color: #0412206c;
-      padding: 2rem;
-      padding-top: 10rem;
-      border-radius: 80px;
-      height: 90vh;
-      width: 8rem;
+      // position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      height: auto;
 
       li {
         position: relative;
         display: flex;
         justify-content: center;
+        width: 100%;
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 3rem;
+          width: 3rem;
+          padding: 1rem;
+          color: white;
+          text-decoration: none;
+          border-radius: 15px;
+          background: #ffffff16;
+
+          &:hover {
+            background: #ffb82b7b;
+          }
+
+          img {
+            max-width: 1rem;
+          }
+        }
 
         p {
           position: absolute;
-          left: 160%;
+          left: 3.5rem;
           top: 50%;
           transform: translateY(-50%);
           margin-left: 0.5rem;
           border-left: solid $yellow;
           border-width: 0.3rem;
           padding: 1rem;
-          border-top-left-radius: 5px;
-          border-bottom-left-radius: 5px;
+          border-radius: 5px;
           background: transparent;
           color: rgba(255, 255, 255, 0.488);
           font-style: italic;
@@ -63,35 +185,30 @@
           pointer-events: none;
           transition: opacity 0.3s ease, transform 0.3s ease;
         }
+
         &:hover p {
           opacity: 1;
           transform: translateY(-50%) translateX(5px);
         }
-        a {
-          display: flex;
-          flex-direction: row;
-          text-align: center;
-          color: white;
-          text-decoration: none;
-          padding: 1rem;
-          border-radius: 15px;
-          background-color: #ffffff16;
-
-          &:hover {
-            background-color: #ffb82b7b;
-          }
-
-          img {
-            max-width: 1rem;
-          }
-        }
       }
     }
+  }
+}
+}
 
-    // _________________________________________________
-    // DESKTOP (from 1350px)
-    @include mq(1350px) {
-      margin-left: 10rem;
+
+
+// _________________________________________________
+// DESKTOP (FROM 1350px)
+
+@include mq(1350px) {
+  .nav-content {
+    .logo-icon {
+      left: 20rem;
+    }
+    nav {
+      width: 8rem; 
+      margin-left: 8rem;
     }
   }
 }
