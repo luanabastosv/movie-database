@@ -3,24 +3,34 @@ import { FavsContext } from "../context/FavsContext";
 import { appTitle } from "../globals/globalVariables";
 import Movie from "../components/Movie";
 import isFav from "../utilities/isFav";
-import Hero from '../components/Hero';
+import Hero from "../components/Hero";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 
 function PageHome() {
   const { favs } = useContext(FavsContext);
-
   const [movies, setMovies] = useState([]);
-  const [activeSection, setActiveSection] = useState("Popular"); 
+  const [activeSection, setActiveSection] = useState("Popular");
+
+  const sections = [
+    "Popular",
+    "Top Rated",
+    "Upcoming",
+    "Now Playing",
+    "Favorites",
+  ];
 
   useEffect(() => {
     document.title = `${appTitle} | Home`;
     fetchMovies("Popular");
   }, []);
 
-  // Função para buscar filmes conforme a seção
   async function fetchMovies(section) {
     try {
-      let endpoint = "/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
+      let endpoint =
+        "/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc";
 
       switch (section) {
         case "Top Rated":
@@ -40,14 +50,13 @@ function PageHome() {
 
       const res = await fetch(`https://api.themoviedb.org/3${endpoint}`, {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NzEyMWE2YTc0MDdkNzlhMmJiODE5MzhkNTBhNWFmNyIsIm5iZiI6MTc1NjgzNzkxMi44OTQsInN1YiI6IjY4YjczODE4MjhjYjFjNmI5ZTE1OGIyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CjjVyW0l-k5Vr2oM-JFmZqO85xtRLeVI-mQZPNNUHb0`, // substitua pelo token TMDB
-              "Content-Type": "application/json;charset=utf-8",
+          Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NzEyMWE2YTc0MDdkNzlhMmJiODE5MzhkNTBhNWFmNyIsIm5iZiI6MTc1NjgzNzkxMi44OTQsInN1YiI6IjY4YjczODE4MjhjYjFjNmI5ZTE1OGIyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CjjVyW0l-k5Vr2oM-JFmZqO85xtRLeVI-mQZPNNUHb0`,
+          "Content-Type": "application/json;charset=utf-8",
         },
       });
 
       const data = await res.json();
 
-      // Adapta os dados para Movie.jsx
       const adaptedMovies = data.results.slice(0, 12).map((movie) => ({
         id: movie.id,
         pic: movie.poster_path,
@@ -63,41 +72,62 @@ function PageHome() {
     }
   }
 
-  // Função para mudar a seção
   function handleSectionClick(section) {
     setActiveSection(section);
-    fetchMovies(section);
+    if (section !== "Favorites") {
+      fetchMovies(section);
+    }
   }
 
-  const sections = ["Popular", "Top Rated", "Upcoming", "Now Playing", "Favorites"];
-
   return (
-  
-
     <main>
       <Hero />
       <section>
         <div className="sections">
-          {sections.map((sec) => (
-            <h2
-              key={sec}
-              className={activeSection === sec ? "active" : ""}
-              onClick={() => handleSectionClick(sec)}
+          {/* MOBILE: carrossel */}
+          <div className="sections-carousel">
+            <Swiper
+              spaceBetween={10}
+              slidesPerView={"auto"}
+              centeredSlides={true}
+              loop={true}
+              onSlideChange={(swiper) => {
+                const section = sections[swiper.realIndex];
+                handleSectionClick(section);
+              }}
             >
-              {sec}
-            </h2>
-          ))}
+              {sections.map((sec, i) => (
+                <SwiperSlide
+                  key={i}
+                  style={{ width: "40%", textAlign: "center" }}
+                >
+                  <h2 className={activeSection === sec ? "active" : ""}>
+                    {sec}
+                  </h2>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+
+          {/* TABLET/DESKTOP: lista inline normal */}
+          <div className="sections-inline">
+            {sections.map((sec) => (
+              <h2
+                key={sec}
+                className={activeSection === sec ? "active" : ""}
+                onClick={() => handleSectionClick(sec)}
+              >
+                {sec}
+              </h2>
+            ))}
+          </div>
         </div>
 
         <div id="movie-box" className="movies-box">
           <div id="movie-grid" className="movie-grid">
             {activeSection === "Favorites"
               ? favs.map((movie) => (
-                  <Movie
-                    key={movie.id}
-                    movieOb={movie}
-                    isFav={true}
-                  />
+                  <Movie key={movie.id} movieOb={movie} isFav={true} />
                 ))
               : movies.map((movie) => (
                   <Movie
@@ -110,7 +140,6 @@ function PageHome() {
         </div>
       </section>
     </main>
-   
   );
 }
 

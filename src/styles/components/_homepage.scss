@@ -122,11 +122,13 @@
       max-width: em(200);
 
       .movie-info {
-        padding-top: em(65);
-        padding-bottom: em(55);
+        padding: em(50) 0;
+        // padding-top: em(65);
+        // padding-bottom: em(55);
 
         p {
-          padding: 0 em(50);
+          margin: 0 em(30);
+          padding: 0;
           font-size: 0.9rem;
           text-align: left;
         }
@@ -155,8 +157,8 @@
     }
   }
 
-  // _________________________________________________
-  // DESKTOP
+// _________________________________________________
+// DESKTOP
   @include mq(1350px) {
     padding: 5rem 3rem;
     margin-left: 28rem;
@@ -164,16 +166,10 @@
 
     .movie {
       .movie-info {
-        padding-top: em(45);
-        padding-bottom: em(35);
-
-        p {
-          font-size: 1rem;
-        }
 
         .link-profile a {
           padding: em(15);
-          font-size: 1rem;
+          font-size: .9rem;
         }
       }
 
