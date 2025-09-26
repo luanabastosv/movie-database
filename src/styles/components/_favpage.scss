@@ -4,9 +4,10 @@
   align-items: left;
   min-height: 95vh;
   margin-top: 25vh;
-  margin-left: 28vw;
+  margin-left: 3rem;
   margin-right: 3rem;
-  text-align: left;
+  text-align: center;
+  
 
   h2 {
     margin-bottom: 3rem;
@@ -148,4 +149,9 @@
       }
     }
   }
+@include mq(810px) {
+  margin-left: 28vw;
+  text-align: left;
+}
+
 }
