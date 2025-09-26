@@ -1,6 +1,9 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import { useHero } from "../context/HeroContext";
 
 function Hero() {
+  const { setHeroMovieId } = useHero();
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
@@ -29,6 +32,9 @@ function Hero() {
         }));
 
         setMovies(topMovies);
+         if (topMovies.length > 0) {
+          setHeroMovieId(topMovies[0].id);
+        }
       } catch (err) {
         console.error("Erro no Hero:", err);
       }
@@ -36,6 +42,12 @@ function Hero() {
 
     fetchHeroMovies();
   }, []);
+
+  useEffect(() => {
+    if (movies.length > 0) {
+      setHeroMovieId(movies[currentIndex].id);
+    }
+  }, [currentIndex, movies, setHeroMovieId]);
 
   // Slider automático
   useEffect(() => {
@@ -66,7 +78,7 @@ function Hero() {
       <div className="hero-content">
         <h2>{currentMovie.title}</h2>
         <p>{currentMovie.overview}</p>
-        <a href={`/movie-profile/${currentMovie.id}`}>Read More →</a>
+        <Link to={`/movie-profile/${currentMovie.id}`}>Read More →</Link>
 
         <div className="hero-nav">
           {movies.map((_, index) => (

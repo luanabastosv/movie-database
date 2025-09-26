@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from "react";
+import { useEffect, useContext, useState, useRef } from "react";
 import { FavsContext } from "../context/FavsContext";
 import { appTitle } from "../globals/globalVariables";
 import Movie from "../components/Movie";
@@ -7,12 +7,13 @@ import Hero from "../components/Hero";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
+import { Mousewheel } from "swiper/modules";
 
 function PageHome() {
   const { favs } = useContext(FavsContext);
   const [movies, setMovies] = useState([]);
   const [activeSection, setActiveSection] = useState("Popular");
+  const swiperRef = useRef(null);
 
   const sections = [
     "Popular",
@@ -25,7 +26,10 @@ function PageHome() {
   useEffect(() => {
     document.title = `${appTitle} | Home`;
     fetchMovies("Popular");
+    handleSectionClick("Popular");
   }, []);
+
+  
 
   async function fetchMovies(section) {
     try {
@@ -86,11 +90,22 @@ function PageHome() {
         <div className="sections">
           {/* MOBILE: carrossel */}
           <div className="sections-carousel">
+             <button
+              className="arrow left"
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
+              {"<"}
+            </button>
+
+            
             <Swiper
+              modules={[Mousewheel]} // 👈 ativa o módulo
+              mousewheel={true}
               spaceBetween={10}
               slidesPerView={"auto"}
               centeredSlides={true}
               loop={true}
+              initialSlide={sections.indexOf("Popular")}
               onSlideChange={(swiper) => {
                 const section = sections[swiper.realIndex];
                 handleSectionClick(section);
@@ -107,6 +122,14 @@ function PageHome() {
                 </SwiperSlide>
               ))}
             </Swiper>
+
+            <button
+              className="arrow right"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
+              {">"}
+            </button>
+
           </div>
 
           {/* TABLET/DESKTOP: lista inline normal */}

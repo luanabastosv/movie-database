@@ -17,6 +17,8 @@ function Nav() {
     setIsOpen(false); // fecha o menu quando clicar em um link
   };
 
+  const detailsId = lastMovieId || heroMovieId;
+
   return (
     <div className="nav-content">
       <nav className={isOpen ? "open" : ""}>
@@ -32,19 +34,13 @@ function Nav() {
             </a>
             <p>Home</p>
           </li>
-          <li>
+           <li>
             <a
-              href={
-                lastMovieId
-                  ? `/movie-profile/${lastMovieId}`
-                  : `/movie-profile/${heroMovieId}`
-              }
+              href={detailsId ? `/movie-profile/${detailsId}` : "#"}
               onClick={(e) =>
                 handleNavClick(
                   e,
-                  lastMovieId
-                    ? `/movie-profile/${lastMovieId}`
-                    : `/movie-profile/${heroMovieId}`
+                  detailsId ? `/movie-profile/${detailsId}` : null
                 )
               }
             >
