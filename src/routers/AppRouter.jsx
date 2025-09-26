@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import PageHome from "../routes/PageHome";
 import PageMovieProfile from "../routes/PageMovieProfile";
 import PageFavs from "../routes/PageFavs";
@@ -12,7 +12,7 @@ import ScrollToHashElement from "../components/ScrollToHashElement"; // importa 
 
 function AppRouter() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <HeroProvider>
         <LastMovieProvider>
           <FavsProvider>
@@ -32,7 +32,7 @@ function AppRouter() {
           </FavsProvider>
         </LastMovieProvider>
       </HeroProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
