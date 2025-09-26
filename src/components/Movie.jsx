@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FavsContext } from "../context/FavsContext";
 import { Link } from "react-router-dom";
 
-const imageFolderPath = import.meta.env.BASE_URL + "assets/images/";
+const imageFolderPath = import.meta.env.BASE_URL + "./assets/images/";
 
 function Movie({ movieOb, profileLink = true, isFav }) {
   const { favs, deleteFav, addFav } = useContext(FavsContext);

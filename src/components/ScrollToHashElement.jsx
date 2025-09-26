@@ -10,7 +10,7 @@ export default function ScrollToHashElement({ offset = 100 }) {
       if (element) {
         const elementPosition = element.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({
-          top: elementPosition - offset, // aqui você aplica o offset
+          top: elementPosition - offset, 
           behavior: "smooth",
         });
       }

@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import FavsProvider from "../context/FavsContext";
 import { LastMovieProvider } from "../context/LastMovieContext";
 import { HeroProvider } from "../context/HeroContext";
-import ScrollToHashElement from "../components/ScrollToHashElement"; // importa o hook
+
 
 function AppRouter() {
   return (
