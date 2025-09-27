@@ -1,4 +1,5 @@
-
+// _________________________________________________
+// MOBILE
 .hero {
   height: 100vh;
   display: flex;
@@ -19,9 +20,9 @@
   }
 
   .hero-content {
-    position: relative; 
+    position: relative;
     max-width: 25rem;
-    z-index: 200; // garante que o link está acima
+    z-index: 200;
     margin-top: 15rem;
     margin-left: 9rem;
     margin-right: 3rem;
@@ -37,7 +38,7 @@
       color: $grey;
       font-weight: 800;
       position: relative;
-      z-index: 201; // link SEMPRE acima
+      z-index: 201;
       &:hover {
         text-decoration: underline;
       }
@@ -45,27 +46,30 @@
   }
 
   .hero-nav {
-    position: relative;  // 🔑 ativa o z-index
+    position: relative;
     z-index: 100;
     margin: 2rem 0;
     padding: 0;
     display: flex;
-    font-size: 8rem; 
+    font-size: 8rem;
     cursor: pointer;
     justify-content: start;
 
     .dot {
       color: #aaaaaa88;
       transition: color 0.3s;
-      line-height: .1rem;
+      line-height: 0.1rem;
       margin: 0;
       padding: 0;
     }
 
-    .dot.active { color: white; }
-    .dot:hover  { color: $yellow; }
+    .dot.active {
+      color: white;
+    }
+    .dot:hover {
+      color: $yellow;
+    }
   }
-
 
   // _________________________________________________
   // TABLET AND DESKTOP
@@ -76,7 +80,7 @@
       font-size: 16px;
       right: 15%;
       margin-top: 20%;
-      
+
       .hero-nav {
         text-align: right;
         .dot {

@@ -13,7 +13,7 @@ function PageMovieProfile() {
   const [actors, setActors] = useState([]);
   const [loadingActors, setLoadingActors] = useState(true);
 
-  // Formata a duração
+// FORMATTING MOVIE DURATION
   function formatDuration(runtime) {
     if (!runtime) return "N/A";
     const h = Math.floor(runtime / 60);
@@ -21,12 +21,12 @@ function PageMovieProfile() {
     return `${h}h${m > 0 ? m + "min" : ""}`;
   }
 
-  // Salva último filme acessado
+// SAVING LAST MOVIE SELECTED
   useEffect(() => {
     if (id) setLastMovieId(id);
   }, [id, setLastMovieId]);
 
-  // Buscar informações do filme
+ 
   useEffect(() => {
     async function fetchMovie() {
       if (!id) return;
@@ -60,7 +60,7 @@ function PageMovieProfile() {
     fetchMovie();
   }, [id]);
 
-  // Buscar atores do filme
+// SEARCHING MOVIE ACTORS
   useEffect(() => {
     async function fetchActors() {
       if (!movieOb) return;
@@ -96,7 +96,7 @@ function PageMovieProfile() {
     fetchActors();
   }, [movieOb]);
 
-  // Atualiza título
+ 
   useEffect(() => {
     if (!movieOb) {
       document.title = `${appTitle} | Movie Profile`;
@@ -105,7 +105,7 @@ function PageMovieProfile() {
     }
   }, [movieOb]);
 
-  // Handler do botão save
+  // SAVED BUTTON
   function handleFavClick() {
     if (!movieOb) return;
     if (favs.some((f) => f.id === movieOb.id)) {

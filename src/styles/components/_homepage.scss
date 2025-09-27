@@ -9,25 +9,26 @@
   .movie-grid {
     display: grid;
     gap: em(60);
-    justify-content: center; // centraliza colunas
+    justify-content: center;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 
-    // Mobile – até 2 colunas
+    .no-favs-message {
+      text-align: center;
+    }
+
     @include mq(480px) {
-      max-width: calc(2 * 180px + 1 * em(30)); // 2 cards + gap
+      max-width: calc(2 * 180px + 1 * em(30));
       margin: 0 auto;
     }
 
-    // Tablet – até 3 colunas
     @include mq(768px) {
-      max-width: calc(3 * 180px + 2 * em(30)); // 3 cards + 2 gaps
+      max-width: calc(3 * 180px + 2 * em(30));
       margin: 0 auto;
     }
 
-    // Desktop – até 4 colunas
     @include mq(1350px) {
       gap: em(40);
-      max-width: calc(4 * 200px + 3 * em(40)); // 4 cards + 3 gaps
+      max-width: calc(4 * 200px + 3 * em(40));
       margin: 0 auto;
     }
   }
@@ -123,8 +124,6 @@
 
       .movie-info {
         padding: em(50) 0;
-        // padding-top: em(65);
-        // padding-bottom: em(55);
 
         p {
           margin: 0 em(30);
@@ -157,8 +156,8 @@
     }
   }
 
-// _________________________________________________
-// DESKTOP
+  // _________________________________________________
+  // DESKTOP
   @include mq(1350px) {
     padding: 5rem 3rem;
     margin-left: 28rem;
@@ -166,10 +165,9 @@
 
     .movie {
       .movie-info {
-
         .link-profile a {
           padding: em(15);
-          font-size: .9rem;
+          font-size: 0.9rem;
         }
       }
 

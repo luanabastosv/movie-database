@@ -92,10 +92,8 @@ nav {
   }
 }
 
-
-
 // _________________________________________________
-// TABLET (FROM 810px)
+// TABLET
 @include mq(810px) {
   .nav-content {
     position: relative;
@@ -107,99 +105,95 @@ nav {
       left: 18rem;
       top: 5rem;
     }
-  
-  nav {
-    position: fixed;
-    left: 0;
-    width: 8rem; 
-    height: calc(100vh - 10rem); 
-    top: 5rem; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 100;
-    margin-left: 6rem;
-    border-radius: 50px;
-    background: $dark-m-transp;
 
-    
-    .hamburger,
-    .logo-icon-mobile {
-      display: none;
-    }
-
-    ul {
-      // position: relative;
+    nav {
+      position: fixed;
+      left: 0;
+      width: 8rem;
+      height: calc(100vh - 10rem);
+      top: 5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
-      width: 100%;
-      height: auto;
+      justify-content: center;
+      z-index: 100;
+      margin-left: 6rem;
+      border-radius: 50px;
+      background: $dark-m-transp;
 
-      li {
-        position: relative;
+      .hamburger,
+      .logo-icon-mobile {
+        display: none;
+      }
+
+      ul {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 0;
         width: 100%;
+        height: auto;
 
-        a {
+        li {
+          position: relative;
           display: flex;
-          align-items: center;
           justify-content: center;
-          height: 3rem;
-          width: 3rem;
-          padding: 1rem;
-          color: white;
-          text-decoration: none;
-          border-radius: 15px;
-          background: #ffffff16;
+          width: 100%;
 
-          &:hover {
-            background: #ffb82b7b;
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 3rem;
+            width: 3rem;
+            padding: 1rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 15px;
+            background: #ffffff16;
+
+            &:hover {
+              background: #ffb82b7b;
+            }
+
+            img {
+              max-width: 1rem;
+            }
           }
 
-          img {
-            max-width: 1rem;
+          p {
+            position: absolute;
+            left: 4.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 0.5rem;
+            border-left: solid $yellow;
+            border-width: 0.3rem;
+            padding: 1rem;
+            border-radius: 5px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.488);
+            font-style: italic;
+            font-weight: 400;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease;
           }
-        }
 
-        p {
-          position: absolute;
-          left: 4.5rem;
-          top: 50%;
-          transform: translateY(-50%);
-          margin-left: 0.5rem;
-          border-left: solid $yellow;
-          border-width: 0.3rem;
-          padding: 1rem;
-          border-radius: 5px;
-          background: transparent;
-          color: rgba(255, 255, 255, 0.488);
-          font-style: italic;
-          font-weight: 400;
-          opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        &:hover p {
-          opacity: 1;
-          transform: translateY(-50%) translateX(5px);
+          &:hover p {
+            opacity: 1;
+            transform: translateY(-50%) translateX(5px);
+          }
         }
       }
     }
   }
 }
-}
-
-
 
 // _________________________________________________
-// DESKTOP (FROM 1350px)
+// DESKTOP
 
 @include mq(1350px) {
   .nav-content {
@@ -207,7 +201,7 @@ nav {
       left: 20rem;
     }
     nav {
-      width: 8rem; 
+      width: 8rem;
       margin-left: 8rem;
     }
   }

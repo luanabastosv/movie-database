@@ -8,7 +8,8 @@ function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
 
-  // Buscar filmes populares
+
+  // TAKE 3 POPULAR MOVIES
   useEffect(() => {
     async function fetchHeroMovies() {
       try {
@@ -36,20 +37,25 @@ function Hero() {
           setHeroMovieId(topMovies[0].id);
         }
       } catch (err) {
-        console.error("Erro no Hero:", err);
+        console.error("Hero error:", err);
       }
     }
 
     fetchHeroMovies();
   }, []);
 
+
+
+// SET ID FOR MOVIE IN HERO
   useEffect(() => {
     if (movies.length > 0) {
       setHeroMovieId(movies[currentIndex].id);
     }
   }, [currentIndex, movies, setHeroMovieId]);
 
-  // Slider automático
+
+
+// SLIDER HERO
   useEffect(() => {
     if (movies.length === 0) return;
 
@@ -57,17 +63,19 @@ function Hero() {
       setCurrentIndex((prevIndex) =>
         prevIndex === movies.length - 1 ? 0 : prevIndex + 1
       );
-    }, 5000); // troca a cada 5 segundos
+    }, 5000); 
 
-    return () => clearInterval(intervalRef.current); // limpa o interval quando desmonta
+    return () => clearInterval(intervalRef.current); 
   }, [movies]);
 
   if (movies.length === 0) {
-    return <section className="hero">Carregando...</section>;
+    return <section className="hero">Charging...</section>;
   }
 
   const currentMovie = movies[currentIndex];
 
+
+// RETURNS
   return (
     <section
       className="hero"

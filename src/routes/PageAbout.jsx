@@ -1,10 +1,3 @@
-import { useEffect, useContext } from "react";
-import { FavsContext } from "../context/FavsContext";
-import { appTitle } from "../globals/globalVariables";
-import Movie from "../components/Movie";
-import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
-
 function PageAbout() {
   return (
     <main>
@@ -20,7 +13,7 @@ function PageAbout() {
             detailed movie pages complete with a lot of information. 
           </p>
           <p className="tmdb">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
-          <img src="/assets/images/tmdb-logo.svg" alt="" />
+          <img src="/assets/images/tmdb-logo.svg" alt="TMDB Logo" />
         </div>
       </section>
     </main>

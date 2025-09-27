@@ -1,9 +1,7 @@
-import { useContext } from "react";
-
 function Footer() {
   return (
     <footer>
-        <p>FWD 42 | Luana Bastos</p>
+        <p>&copy; Luana Bastos | FWD 42</p>
     </footer>
   );
 }

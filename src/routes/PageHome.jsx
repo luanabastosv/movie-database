@@ -126,7 +126,6 @@ function PageHome() {
             </button>
           </div>
 
-          
           <div className="sections-inline">
             {sections.map((sec) => (
               <h2
@@ -142,17 +141,26 @@ function PageHome() {
 
         <div id="movie-box" className="movies-box">
           <div id="movie-grid" className="movie-grid">
-            {activeSection === "Favorites"
-              ? favs.map((movie) => (
+            {activeSection === "Favorites" ? (
+              favs.length > 0 ? (
+                favs.map((movie) => (
                   <Movie key={movie.id} movieOb={movie} isFav={true} />
                 ))
-              : movies.map((movie) => (
-                  <Movie
-                    key={movie.id}
-                    movieOb={movie}
-                    isFav={isFav(favs, null, movie.id)}
-                  />
-                ))}
+              ) : (
+                <p className="no-favs-message">
+                  Sorry, you have no favorited movies. Return to the home page
+                  to add a favorite movie.
+                </p>
+              )
+            ) : (
+              movies.map((movie) => (
+                <Movie
+                  key={movie.id}
+                  movieOb={movie}
+                  isFav={isFav(favs, null, movie.id)}
+                />
+              ))
+            )}
           </div>
         </div>
       </section>

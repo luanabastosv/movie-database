@@ -10,15 +10,18 @@ function Nav() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
 
+  // NAV CLICKS HANDLE
   const handleNavClick = (e, path) => {
     e.preventDefault();
     navigate(path);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setIsOpen(false); // fecha o menu quando clicar em um link
+    setIsOpen(false);
   };
 
+  // CHOOSING SELECTED MOVIE TO SHOW ON SINGLE DETAIL PAGE
   const detailsId = lastMovieId || heroMovieId;
 
+  // RETURNS
   return (
     <div className="nav-content">
       <nav className={isOpen ? "open" : ""}>
@@ -34,7 +37,7 @@ function Nav() {
             </a>
             <p>Home</p>
           </li>
-           <li>
+          <li>
             <a
               href={detailsId ? `/movie-profile/${detailsId}` : "#"}
               onClick={(e) =>
@@ -73,14 +76,9 @@ function Nav() {
         </a>
       </nav>
 
-      <a
-        href="/"
-        className="logo-icon"
-        onClick={(e) => handleNavClick(e, "/")}
-      >
+      <a href="/" className="logo-icon" onClick={(e) => handleNavClick(e, "/")}>
         <img src="/assets/images/muvi-logo.png" alt="Muvi Logo" />
       </a>
-
     </div>
   );
 }

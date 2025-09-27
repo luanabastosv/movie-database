@@ -7,6 +7,8 @@ const imageFolderPath = import.meta.env.BASE_URL + "./assets/images/";
 function Movie({ movieOb, profileLink = true, isFav }) {
   const { favs, deleteFav, addFav } = useContext(FavsContext);
 
+
+// ADDS/REMOVE FAVE ICON
   function handleFavClick(obj, removeFromFavs = false) {
     if (removeFromFavs) {
       deleteFav(obj);
@@ -15,6 +17,7 @@ function Movie({ movieOb, profileLink = true, isFav }) {
     }
   }
 
+// RETURNS
   return (
     <div className="movie">
       <div className="saved" onClick={() => handleFavClick(movieOb, isFav)}>
