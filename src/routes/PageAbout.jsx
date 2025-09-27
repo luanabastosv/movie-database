@@ -17,9 +17,10 @@ function PageAbout() {
             viewer, film student, or hardcore cinephile, Muvi offers a dynamic,
             user-friendly database that brings movies to life through rich
             metadata, curated content, and intelligent search tools. Dive into
-            detailed movie pages complete with plot summaries, trailers,
-            reviews, behind-the-scenes insights, and audience discussions.
+            detailed movie pages complete with a lot of information. 
           </p>
+          <p className="tmdb">This product uses the TMDb API but is not endorsed or certified by TMDb.</p>
+          <img src="/assets/images/tmdb-logo.svg" alt="" />
         </div>
       </section>
     </main>

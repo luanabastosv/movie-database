@@ -1,30 +1,52 @@
 .about-card {
-    background-color: $dark-m;
-    padding: 5rem;
-    width: 50vw;
-    border-radius: em(40);
-    margin-left: 30vw;
-    margin-top: 30vh;
+  background-color: $dark-m;
+  display: flex;
+  padding: 4rem 2.5rem;
+  border-radius: em(40);
+  margin-right: 2rem;
+  margin-left: 2rem;
+  margin-top: 10rem;
+  max-width: 30rem;
+  justify-self: center;
+  align-self: baseline;
+  
 
-    .about-content {
-        margin-left: 20%;
-        padding-left: 5%;
-        border-left: solid $yellow;
+  .about-content {
+    margin-left: 10%;
+    padding-left: 5%;
+    border-left: solid $yellow;
 
-        h2 {
-            display: flex;
-            flex-direction: row;
-            align-content: end;
-    
-            img {
-                max-width: 200px;
-                padding: 0;
-                margin: 0;
-                align-self: end;
-            }
-        }
+    p {
+      font-size: 14px;
+      line-height: 1.8rem;
     }
 
-    
+    h2 {
+      display: flex;
+      flex-direction: row;
+      align-content: end;
+    }
+    img {
+      max-width: 10rem;
+    };
+    .tmdb {
+      margin-top: 4rem;
+      font-style: italic;
+    }
+  }
 
+  @include mq(810px) {
+    padding: 5rem;
+    // width: 50vw;
+    max-width: 70rem;
+    margin-left: 20rem;
+    margin-right: 6rem;
+    margin-top: 15rem;
+    .about-content {
+      margin-left: 20%;
+      p {
+        font-size: 16px;
+      }
+    }
+  }
 }

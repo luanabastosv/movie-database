@@ -1,5 +1,7 @@
-// Footer
+// _________________________________________________
+// MOBILE
 footer {
+  margin-top: 3rem;
   text-align: center;
   font-size: 0.8rem;
   font-family: $bodyFont;
@@ -9,4 +11,19 @@ footer {
     @include flatten;
     padding: 2rem;
   }
+
+// _________________________________________________
+// TABLET
+  @include mq(810px) {
+    margin-left: 20rem;
+    margin-right: 6rem;
+  }
+
+// _________________________________________________
+// DESKTOP
+  @include mq(1350px) {
+    margin-left: 28rem;
+    margin-right: 10rem;
+  }
 }
+

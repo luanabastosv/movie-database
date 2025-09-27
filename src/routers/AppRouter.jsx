@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import FavsProvider from "../context/FavsContext";
 import { LastMovieProvider } from "../context/LastMovieContext";
 import { HeroProvider } from "../context/HeroContext";
-
+import ScrollToTop from "../components/ScrollToTop";
 
 function AppRouter() {
   return (
@@ -18,12 +18,10 @@ function AppRouter() {
           <FavsProvider>
             <div className="wrapper">
               <Nav />
+              <ScrollToTop />
               <Routes>
                 <Route path="/" element={<PageHome />} />
-                <Route
-                  path="/movie-profile/:id"
-                  element={<PageMovieProfile />}
-                />
+                <Route path="/movie-profile/:id" element={<PageMovieProfile />}/>
                 <Route path="/favs" element={<PageFavs />} />
                 <Route path="/about" element={<PageAbout />} />
               </Routes>

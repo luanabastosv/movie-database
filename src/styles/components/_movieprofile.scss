@@ -2,17 +2,36 @@
 // MOBILE
 .page-profile {
   display: flex;
-  margin: 1rem 0;
+  margin: 0;
+  position: relative;
+  justify-content: center;
+  z-index: 1;
+  min-height: 100vh;
+  background-image: var(--backdrop-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+   &::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.77), #000912);
+    z-index: 0;
+  }
 
   .single-movie {
+    position: relative;
+    z-index: 1;
     display: flex;
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
     align-items: center;
     gap: 2rem;
     width: 100%;
     margin: 8rem auto;
     padding: 3rem;
-    transform: none; // remove offset no mobile
+    transform: none; 
 
     .movie-poster {
       width: 100%;
@@ -86,77 +105,72 @@
 
       .movie-specs {
         padding: 0;
-        
+        margin-top: 3rem;
+        margin-bottom: 2rem;
 
         p {
-          line-height: 1.5;
+          line-height: .5rem;
           font-size: large;
           font-weight: 600;
           text-align: left;
-          margin: 2rem 3rem;
+          margin: .5rem 3rem;
         }
 
         div {
           display: flex;
           flex-wrap: wrap;
           justify-content: left;
-          gap: .8rem;
+          gap: .2rem;
           margin-left: 3rem;
 
           p {
             font-style: italic;
             font-weight: 200;
             font-size: small;
-            line-height: .1rem;
+            line-height: 1rem;
             margin: 0;
+            flex-wrap: wrap;
           }
         }
       }
     }
   }
 
-
-// _________________________________________________
-// TABLET AND DESKTOP (FROM 810px)
 @include mq(810px) {
+  .page-profile {
+    position: relative;
+    display: flex; 
+    justify-content: center;
+    align-items: center;// sempre deixa respiro do nav
+    padding-top: 8rem; // evita colidir com logo/nav superior
+    min-height: 100vh; // garante altura cheia
+    box-sizing: border-box;
+  }
+
   .single-movie {
+    display: flex;
     flex-direction: row-reverse;
-    align-items: flex-start;
-    gap: 3.5rem;
-    width: 60rem; // largura fixa
-    max-width: 90%;
-    margin-top: 30vh;
-    padding-left: 6rem;
-    transform: translateX(3rem);
+    align-items: start;
+    justify-content: center;
+    gap: 0rem;
+    width: 100%;
+    margin-top: 22rem;
+    margin-left: 18rem;
+    margin-right: 0rem;
+    padding-right: 0;
+  }
 
-    .movie-content {
-      margin-right: 2rem;
-      text-align: left;
+  .movie-poster {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 220px; 
+  }
 
-      h2 {
-        margin-bottom: 1rem;
-        text-align: left;
-      }
-
-      p {
-        text-align: left;
-      }
-
-      .actors {
-        justify-content: flex-start;
-
-        img {
-          margin-right: 1rem;
-          margin-top: 1rem;
-        }
-      }
-
-      .movie-specs {
-        div {
-          justify-content: flex-start;
-        }
-      }
-    }
+  .movie-content {
+    flex: 1;
+    max-width: 40rem;
   }
 }
+
 }
+

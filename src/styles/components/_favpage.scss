@@ -1,13 +1,163 @@
+// .page-favorites {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center; // centraliza no mobile
+//   min-height: 95vh;
+//   margin-top: 25vh;
+//   margin-inline: 3rem; // margem no mobile
+//   text-align: center;
+
+//   h2 {
+//     margin-bottom: 3rem;
+//     width: 100%;
+//   }
+
+//   .fav-movies {
+//     display: grid;
+//     gap: em(50);
+//     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+//     justify-items: center;
+//     width: 100%;
+//     margin-top: 1.5rem;
+
+//     // cards (filme e add) sempre no mesmo tamanho
+//     .movie,
+//     .add-movie {
+//       position: relative;
+//       width: 100%;
+//       min-width: 220px; // 👈 impede que encolham demais
+//       max-width: 250px; // 👈 não deixa crescer infinito
+//       cursor: pointer;
+//     }
+
+//     .movie {
+//       .profile-picture img {
+//         width: 100%;
+//         height: auto;
+//         border-radius: em(20);
+//         object-fit: cover;
+//         display: block;
+//       }
+
+//       .movie-info {
+//         display: none;
+//         position: absolute;
+//         inset: 0;
+//         text-align: center;
+//         background-color: $dark;
+//         border-radius: em(20);
+//         z-index: 5;
+//         color: $grey;
+//         font-style: italic;
+//         font-size: medium;
+//         padding: em(45) em(35) em(50);
+
+//         p {
+//           text-align: left;
+//           font-size: 16px;
+//         }
+
+//         .link-profile a {
+//           padding: em(15);
+//           background-color: #fcfcfca6;
+//           color: $light;
+//           border-radius: em(40);
+//           text-decoration: none;
+//           font-style: normal;
+//           font-family: $headingFont;
+//           text-transform: uppercase;
+//           font-weight: bolder;
+
+//           &:hover {
+//             background-color: #868484a6;
+//           }
+//         }
+//       }
+
+//       &:hover .movie-info {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+//       }
+
+//       .saved {
+//         position: absolute;
+//         top: em(-30);
+//         right: em(30);
+//         width: em(45);
+//         cursor: pointer;
+//         z-index: 15;
+//       }
+
+//       .rating {
+//         background-color: $yellow;
+//         position: absolute;
+//         top: em(-10);
+//         right: 70%;
+//         text-align: center;
+//         width: em(45);
+//         height: em(22);
+//         z-index: 15;
+
+//         p {
+//           color: $dark;
+//           font-size: 16px;
+//         }
+//       }
+//     }
+
+//     // card de adicionar filme
+//     .add-movie {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//       justify-content: center;
+//       aspect-ratio: 2/3;
+//       border-radius: em(20);
+//       border: 4px dotted $grey;
+//       font-size: 3rem;
+//       font-weight: bold;
+//       color: $grey;
+//       transition: all 0.3s ease;
+//       text-decoration: none;
+
+//       p {
+//         font-size: 1rem;
+//         text-transform: uppercase;
+//         font-weight: 300;
+//         font-style: italic;
+//       }
+
+//       &:hover {
+//         background-color: rgba(255, 255, 255, 0.05);
+//         color: $light;
+//         border-color: $light;
+//       }
+//     }
+//   }
+
+//   // --- Tablet / Desktop ---
+//   @media (min-width: 810px) {
+//     align-items: flex-start;
+//     text-align: left;
+
+//     padding-left: 22rem; // garante distância da barra lateral
+//     padding-right: 5rem;
+//     margin-inline: auto;
+//     width: 100%;
+//     max-width: 100%;
+//     box-sizing: border-box;
+//   }
+// }
+
 .page-favorites {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center; // centraliza no mobile
   min-height: 95vh;
   margin-top: 25vh;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-inline: 3rem; // margem lateral no mobile
   text-align: center;
-  
 
   h2 {
     margin-bottom: 3rem;
@@ -16,31 +166,25 @@
 
   .fav-movies {
     display: grid;
-    gap: em(60);
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: em(30); // menor espaçamento entre cards
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     justify-items: center;
     width: 100%;
     max-width: 70rem;
+    margin-top: 1.5rem;
 
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media (max-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: 480px) {
-      grid-template-columns: 1fr;
-    }
-
-    // Card do filme
-    .movie {
+    // garante mesmo comportamento para cards de filmes e add
+    .movie,
+    .add-movie {
       position: relative;
       width: 100%;
-      max-width: em(250);
+      min-width: 220px; // não deixa encolher demais
+      max-width: 250px; // não deixa crescer infinito
       cursor: pointer;
+    }
 
+    // Card de filme
+    .movie {
       .profile-picture img {
         width: 100%;
         height: auto;
@@ -60,12 +204,11 @@
         color: $grey;
         font-style: italic;
         font-size: medium;
-        padding-bottom: em(50);
-        padding-top: em(45);
+        padding: em(45) em(35) em(50);
 
         p {
-          padding: 0 em(35);
           text-align: left;
+          font-size: 16px;
         }
 
         .link-profile a {
@@ -99,39 +242,36 @@
         cursor: pointer;
         z-index: 15;
       }
+
       .rating {
-      background-color: $yellow;
-      position: absolute;
-      top: em(-10);
-      right: 70%;
-      text-align: center;
-      width: em(45);
-      height: em(22);
-      z-index: 15;
-      p {
-        color: $dark;
-        font-size: 14px;
+        background-color: $yellow;
+        position: absolute;
+        top: em(-10);
+        right: 70%;
+        text-align: center;
+        width: em(45);
+        height: em(22);
+        z-index: 15;
+
+        p {
+          color: $dark;
+          font-size: 16px;
+        }
       }
-      
-    }
     }
 
-    // Botão de adicionar filme (+)
+    // Card de adicionar filme (+)
     .add-movie {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      max-width: em(250);
-      height: auto;
-      aspect-ratio: 2/3; // mantém proporção parecida com pôster
-      border-radius: em(10);
-      border: 4px dotted $grey; 
+      aspect-ratio: 2/3;
+      border-radius: em(20);
+      border: 4px dotted $grey;
       font-size: 3rem;
       font-weight: bold;
       color: $grey;
-      cursor: pointer;
       transition: all 0.3s ease;
       text-decoration: none;
 
@@ -149,9 +289,22 @@
       }
     }
   }
-@include mq(810px) {
-  margin-left: 28vw;
-  text-align: left;
-}
 
+  // --- Tablet / Desktop ---
+  @media (min-width: 810px) {
+    align-items: flex-start;
+    text-align: left;
+
+    padding-left: 22rem; // distância mínima da barra lateral
+    padding-right: 5rem;
+    margin-inline: auto;
+    width: 100%;
+    max-width: calc(100vw - 22rem - 5rem); // garante que não ultrapasse a barra lateral
+    box-sizing: border-box;
+
+    .fav-movies {
+      justify-content: start; // cards grudados à esquerda, quebrando linha quando necessário
+      gap: em(30); // espaço ajustado entre cards
+    }
+  }
 }

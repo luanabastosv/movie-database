@@ -4,7 +4,6 @@ import { appTitle } from "../globals/globalVariables";
 import Movie from "../components/Movie";
 import isFav from "../utilities/isFav";
 import Hero from "../components/Hero";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { Mousewheel } from "swiper/modules";
@@ -28,8 +27,6 @@ function PageHome() {
     fetchMovies("Popular");
     handleSectionClick("Popular");
   }, []);
-
-  
 
   async function fetchMovies(section) {
     try {
@@ -72,7 +69,7 @@ function PageHome() {
 
       setMovies(adaptedMovies);
     } catch (err) {
-      console.error("Erro ao buscar filmes:", err);
+      console.error("Error at searching for movies:", err);
     }
   }
 
@@ -88,18 +85,16 @@ function PageHome() {
       <Hero />
       <section>
         <div className="sections">
-          {/* MOBILE: carrossel */}
           <div className="sections-carousel">
-             <button
+            <button
               className="arrow left"
               onClick={() => swiperRef.current?.slidePrev()}
             >
               {"<"}
             </button>
 
-            
             <Swiper
-              modules={[Mousewheel]} // 👈 ativa o módulo
+              modules={[Mousewheel]}
               mousewheel={true}
               spaceBetween={10}
               slidesPerView={"auto"}
@@ -129,10 +124,9 @@ function PageHome() {
             >
               {">"}
             </button>
-
           </div>
 
-          {/* TABLET/DESKTOP: lista inline normal */}
+          
           <div className="sections-inline">
             {sections.map((sec) => (
               <h2

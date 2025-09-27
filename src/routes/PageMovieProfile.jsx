@@ -70,7 +70,8 @@ function PageMovieProfile() {
           `https://api.themoviedb.org/3/movie/${movieOb.id}/credits?language=en-US`,
           {
             headers: {
-              Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NzEyMWE2YTc0MDdkNzlhMmJiODE5MzhkNTBhNWFmNyIsIm5iZiI6MTc1NjgzNzkxMi44OTQsInN1YiI6IjY4YjczODE4MjhjYjFjNmI5ZTE1OGIyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CjjVyW0l-k5Vr2oM-JFmZqO85xtRLeVI-mQZPNNUHb0",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NzEyMWE2YTc0MDdkNzlhMmJiODE5MzhkNTBhNWFmNyIsIm5iZiI6MTc1NjgzNzkxMi44OTQsInN1YiI6IjY4YjczODE4MjhjYjFjNmI5ZTE1OGIyNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CjjVyW0l-k5Vr2oM-JFmZqO85xtRLeVI-mQZPNNUHb0",
               "Content-Type": "application/json;charset=utf-8",
             },
           }
@@ -119,12 +120,9 @@ function PageMovieProfile() {
       <div
         className="page-profile"
         style={{
-          backgroundImage: movieOb
-            ? `linear-gradient(rgba(0,0,0,0.77), rgba(0,0,0,0.82)), url(https://image.tmdb.org/t/p/original${movieOb.backdrop})`
+          "--backdrop-url": movieOb
+            ? `url(https://image.tmdb.org/t/p/original${movieOb.backdrop})`
             : "none",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          minHeight: "100vh",
         }}
       >
         <section className="single-movie">
